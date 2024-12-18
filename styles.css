@@ -147,6 +147,7 @@
   /* About Section */
   #about{
     background-color: #f8f9fa;
+    padding: 2rem 1rem;
   }
   .about p {
     text-align: center;
@@ -155,6 +156,20 @@
     margin: 0 auto;
     color: #333;
   }
+  
+  .about-thumbnail {
+    display: block;
+    margin: 1.5rem auto;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%; 
+    border: 5px solid #740938; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  
   
   /* Services Section */
   .services-grid {
@@ -225,13 +240,40 @@
     transform: scale(1.05);
 }
 
-/* Thumbnail Images */
+/* Portfolio image container */
+.portfolio-img-container {
+  position: relative;
+  cursor: pointer; 
+}
+
 .portfolio-item img {
     width: 100%;
     /* height: 180px; */
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 15px;
+}
+.hover-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #740938;
+  padding: 10px;
+  border-radius: 5px;
+  display: none; /* Hide text initially */
+  text-align: center;
+}
+
+.portfolio-img-container:hover .hover-text {
+  display: block; /* Show the text when hovering */
+}
+
+.portfolio-img-container:hover img {
+  opacity: 0.4;
 }
 
 /* Text Styling */
@@ -244,6 +286,51 @@
 .portfolio-item p {
     font-size: 16px;
     color: #333;
+}
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.lightbox-image {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 8px;
+}
+
+.close, .nav-btn {
+  color: #fff;
+  font-size: 2rem;
+  position: absolute;
+  cursor: pointer;
+  user-select: none;
+}
+
+.close {
+  top: 20px;
+  right: 30px;
+}
+
+.nav-btn {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
 }
 
   
@@ -418,6 +505,15 @@
       font-size: 1rem;
     }
 
+    .about-thumbnail {
+      width: 120px;
+      height: 120px;
+    }
+    .about p {
+      font-size: 1rem; /* Slightly smaller font for better mobile readability */
+    }
+  
+
     #portfolio h2 {
         font-size: 28px;
     }
@@ -432,6 +528,14 @@
 
     .portfolio-item img {
         height: 150px; /* Adjust height for smaller screens */
+    }
+    .lightbox-image {
+      max-width: 95%;
+      max-height: 70%;
+    }
+  
+    .close, .nav-btn {
+      font-size: 1.5rem;
     }
 
     #contact h2 {
@@ -469,5 +573,12 @@
         height: 100vh; /* Allow height to adjust to content */
         padding: 40px 15px; /* Add more padding for smaller devices */
         background-size: cover; /* Ensure image covers the section */
+      }
+
+      .about-thumbnail {
+        max-width: 100px; /* Smaller thumbnail on mobile screens */
+      }
+      .about p {
+        font-size: 0.9rem; /* Adjust text size for small devices */
       }
     }
