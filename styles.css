@@ -452,7 +452,17 @@
     text-align: center;
     padding: 20px 0;
   }
-  
+  footer a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+}
+footer a:hover {
+  transition: 2s;
+  color: #fff;
+  transform: translatey(-10px);
+  font-weight: 600;
+}
   .footer p {
     margin: 0;
     font-size: 0.9rem;
